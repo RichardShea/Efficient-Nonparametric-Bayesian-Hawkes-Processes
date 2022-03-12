@@ -90,7 +90,11 @@ def sij(x, phi, mu):
     sij = np.zeros(nx)
     for idx in range(1, nx):
         l = phi(x[0, idx] - x[0, :idx])
+        # add start time
         pij = (np.append([mu],l))/(mu+np.sum(l))
+        # add end time
+        # calculate end - start --> diff
+        # save/append diff to list
         sij[idx] = np.random.choice(range(idx + 1), 1, p=pij)
     return sij
     
